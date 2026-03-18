@@ -1,9 +1,9 @@
 # header ----
 grupa="Papilionoidea"
 Grassland_index = TRUE  # Mainīt uz FALSE, ja nevajag apakšmapi
-sugaEGV="POLICA"
-suga="POLICA"
-suga_versija=paste0(suga,"_v0b1")
+sugaEGV="ANTCAR"
+suga="ANTCAR"
+suga_versija=paste0(suga,"_v0b5")
 home_range=500
 piepules_radiuss_m=home_range*3
 LULCfiltrs_cell=99.99
@@ -63,6 +63,9 @@ if (Grassland_index) {
 } else {
   base_path = paste0("./TestingScripts/JekaterinaButkevica/", grupa, "/", suga_versija, "/")
 }
+
+
+
 
 fs::dir_create(base_path)
 

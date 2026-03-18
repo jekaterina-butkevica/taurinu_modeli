@@ -1,9 +1,9 @@
 # header ----
 grupa="Papilionoidea"
-Grassland_index = TRUE  # Mainīt uz FALSE, ja nevajag apakšmapi
-sugaEGV="COEPAM"
-suga="COEPAM"
-suga_versija=paste0(suga,"_v0b1")
+Grassland_index = FALSE  # Mainīt uz FALSE, ja nevajag apakšmapi
+sugaEGV="PAPMAC"
+suga="PAPMAC"
+suga_versija=paste0(suga,"_v0b5")
 home_range=500
 piepules_radiuss_m=home_range*3
 LULCfiltrs_cell=99.99
@@ -59,10 +59,13 @@ papildpiepulei=papildpiepulei %>%
 grassland_folder = "00GrasslandIndex" # Šeit ieraksti vēlamo mapes nosaukumu
 
 if (Grassland_index) {
-  base_path = paste0("./TestingScripts/JekaterinaButkevica/", grupa, "/", grassland_folder, "/", suga_versija, "/")
+  base_path = paste0("./TestingScripts/JekaterinaButkevica/", grupa, "/", grassland_folder, "/", suga, "/", suga_versija, "/")
 } else {
-  base_path = paste0("./TestingScripts/JekaterinaButkevica/", grupa, "/", suga_versija, "/")
+  base_path = paste0("./TestingScripts/JekaterinaButkevica/", grupa, "/", suga, "/", suga_versija, "/")
 }
+
+
+
 
 fs::dir_create(base_path)
 
