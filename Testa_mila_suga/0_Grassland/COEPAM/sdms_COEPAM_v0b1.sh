@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=COEPAM_v0b1		 # Job name
-#SBATCH --partition=power			 # Partition name
+#SBATCH --partition=weakold			 # Partition name
 #SBATCH --ntasks=1				 # Number of tasks
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=35G				 # Kopējā atmiņa
