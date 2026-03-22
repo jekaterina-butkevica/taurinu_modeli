@@ -1,22 +1,22 @@
 # header ----
 grupa="Papilionoidea"
-Grassland_index = FALSE  # Mainīt uz FALSE, ja nevajag apakšmapi
-sugaEGV="PAPMAC"
-suga="PAPMAC"
-suga_versija=paste0(suga,"_v0b5")
+Grassland_index = TRUE  # Mainīt uz FALSE, ja nevajag apakšmapi
+sugaEGV="COEPAM"
+suga="COEPAM"
+suga_versija=paste0(suga,"_v1b5")
 home_range=500
 piepules_radiuss_m=home_range*3
 LULCfiltrs_cell=99.99
 LULCfiltrs_hr=99.99
 gada_filtrs=2016
-grupas_mainigajiem="./SpeciesModels/00_EGVtables/EGVtable_AllSpecies_v3_01032026.xlsx"
-noverojumu_tabula="./SpeciesModels/00_Observations/Observations_v11_AAvj_tikls.csv"
+grupas_mainigajiem="./SpeciesModels/00_EGVtables/EGVtable_AllSpecies_v4_18032026.xlsx"
+noverojumu_tabula="./SpeciesModels/00_Observations/Observations_v12_AAvj_tikls.csv"
 apaksgala_limitacija=0.1
 vpi_slieksnis=5
 extraeffort="./SpeciesModels/00_Observations/ObsEffort_Papilionoidea.csv"
 
 suppressPackageStartupMessages(library(tidyverse))
-svarosanai=readr::read_csv("./SpeciesModels/00_FilteringWeighting/NoverojumuFiltresanai_Novirzem_20260301.csv")
+svarosanai=readr::read_csv("./SpeciesModels/00_FilteringWeighting/NoverojumuFiltresanai_Novirzem_20260320.csv")
 svarosana_suga=svarosanai %>% 
   filter(CODE==suga)
 svarosanas_sugas=svarosanai %>% 
@@ -39,18 +39,8 @@ papildpiepulei=papildpiepulei %>%
 #  filter(Group==grupa) %>% 
 #  filter(Year>=gada_filtrs)
 
-#izsledzamie_egv=c("egv_093", # papildinajums
-#                  "egv_150",
-#                  "egv_423",
-#                  "egv_424",
-#                  "egv_425",
-#                  "egv_426",
-#                  "egv_427",
-#                  "egv_255",
-#                  "egv_256",
-#                  "egv_257",
-#                  "egv_258",
-#                  "egv_259")
+izsledzamie_egv=c("egv_490"#Telp.var pēdējo gadu mediān NDVI vērtībai 1 ha
+                          ) 
 
 
 
@@ -59,9 +49,9 @@ papildpiepulei=papildpiepulei %>%
 grassland_folder = "00GrasslandIndex" # Šeit ieraksti vēlamo mapes nosaukumu
 
 if (Grassland_index) {
-  base_path = paste0("./TestingScripts/JekaterinaButkevica/", grupa, "/", grassland_folder, "/", suga, "/", suga_versija, "/")
+  base_path = paste0("./TestingScripts/JekaterinaButkevica/", grupa, "/", grassland_folder, "/", suga, "/" , suga_versija, "/")
 } else {
-  base_path = paste0("./TestingScripts/JekaterinaButkevica/", grupa, "/", suga, "/", suga_versija, "/")
+  base_path = paste0("./TestingScripts/JekaterinaButkevica/", grupa, "/", suga, "/" , suga_versija, "/")
 }
 
 
@@ -95,8 +85,8 @@ print("Sāku VIF: ")
 print(Sys.time())
 
 grupas_mainigie=read_excel(grupas_mainigajiem)
-grupas_mainigie=grupas_mainigie #%>% 
-#  filter(!(egv_layername %in% izsledzamie_egv))
+grupas_mainigie=grupas_mainigie %>% 
+  filter(!(egv_layername %in% izsledzamie_egv))
 
 mainigajiem2=grupas_mainigie %>% 
   pivot_longer(cols=9:length(names(grupas_mainigie)),

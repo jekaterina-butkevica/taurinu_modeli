@@ -1,12 +1,12 @@
 #!/bin/bash
 #SBATCH --job-name=COEPAM_v0b5		 # Job name
-#SBATCH --partition=power			 # Partition name
+#SBATCH --partition=weakold			 # Partition name
 #SBATCH --ntasks=1				 # Number of tasks
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=35G				 # Kopējā atmiņa
 #SBATCH --time=72:00:00			 # Time limit, hrs:min:sec
 #SBATCH --output=TestingScripts/JekaterinaButkevica/Papilionoidea/00GrasslandIndex/sdms_COEPAM_v0b5.out			 # Standard output and error log
- 
+
 
 
 set -euo pipefail

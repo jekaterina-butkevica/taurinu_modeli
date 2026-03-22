@@ -1,11 +1,11 @@
 #!/bin/bash
-#SBATCH --job-name=PAPMAC_v0b5		 # Job name
-#SBATCH --partition=power			 # Partition name
+#SBATCH --job-name=COEPAM_v1b1		 # Job name
+#SBATCH --partition=weakold			 # Partition name
 #SBATCH --ntasks=1				 # Number of tasks
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=35G				 # Kopējā atmiņa
 #SBATCH --time=72:00:00			 # Time limit, hrs:min:sec
-#SBATCH --output=TestingScripts/JekaterinaButkevica/Papilionoidea/sdms_PAPMAC_v0b5.out			 # Standard output and error log
+#SBATCH --output=TestingScripts/JekaterinaButkevica/Papilionoidea/00GrasslandIndex/sdms_COEPAM_v1b1.out			 # Standard output and error log
 
 
 
@@ -15,7 +15,7 @@ set -euo pipefail
 PROJECT_ROOT="/home/hiqbiodiv"
 IMG="${PROJECT_ROOT}/hiqbiodiv-container_20260301.sif"
 WORKDIR="${PROJECT_ROOT}"
-SCRIPT="${WORKDIR}/TestingScripts/JekaterinaButkevica/sdms_PAPMAC_v0b5.R"
+SCRIPT="${WORKDIR}/TestingScripts/JekaterinaButkevica/sdms_COEPAM_v1b1.R"
 
 echo "Starting job"
 echo "Date = $(date)"

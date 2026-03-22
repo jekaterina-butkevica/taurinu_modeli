@@ -9,14 +9,14 @@ piepules_radiuss_m=home_range*3
 LULCfiltrs_cell=99.99
 LULCfiltrs_hr=99.99
 gada_filtrs=2016
-grupas_mainigajiem="./SpeciesModels/00_EGVtables/EGVtable_AllSpecies_v3_01032026.xlsx"
-noverojumu_tabula="./SpeciesModels/00_Observations/Observations_v11_AAvj_tikls.csv"
+grupas_mainigajiem="./SpeciesModels/00_EGVtables/EGVtable_AllSpecies_v4_18032026.xlsx"
+noverojumu_tabula="./SpeciesModels/00_Observations/Observations_v12_AAvj_tikls.csv"
 apaksgala_limitacija=0.1
-vpi_slieksnis=1
+vpi_slieksnis=1 
 extraeffort="./SpeciesModels/00_Observations/ObsEffort_Papilionoidea.csv"
 
 suppressPackageStartupMessages(library(tidyverse))
-svarosanai=readr::read_csv("./SpeciesModels/00_FilteringWeighting/NoverojumuFiltresanai_Novirzem_20260301.csv")
+svarosanai=readr::read_csv("./SpeciesModels/00_FilteringWeighting/NoverojumuFiltresanai_Novirzem_20260320.csv")
 svarosana_suga=svarosanai %>% 
   filter(CODE==suga)
 svarosanas_sugas=svarosanai %>% 
@@ -59,9 +59,9 @@ papildpiepulei=papildpiepulei %>%
 grassland_folder = "00GrasslandIndex" # Šeit ieraksti vēlamo mapes nosaukumu
 
 if (Grassland_index) {
-  base_path = paste0("./TestingScripts/JekaterinaButkevica/", grupa, "/", grassland_folder, "/", suga_versija, "/")
+  base_path = paste0("./TestingScripts/JekaterinaButkevica/", grupa, "/", grassland_folder, "/", suga, "/" , suga_versija, "/")
 } else {
-  base_path = paste0("./TestingScripts/JekaterinaButkevica/", grupa, "/", suga_versija, "/")
+  base_path = paste0("./TestingScripts/JekaterinaButkevica/", grupa, "/", suga, "/" , suga_versija, "/")
 }
 
 
